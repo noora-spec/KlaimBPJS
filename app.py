@@ -40,15 +40,15 @@ with tab1:
     
     with col1:
         kelas_rawat = st.selectbox("Kelas Rawat", options=[1, 2, 3], index=2)
-        los = st.number_input("LOS (Length of Stay / Hari Rawat)", min_value=1, max_value=30, value=3)
-        total_tarif = st.number_input("Total Tarif (Rp)", min_value=0, value=3500000, step=50000)
-        tarif_rs = st.number_input("Tarif RS (Rp)", min_value=0, value=3000000, step=50000)
+        los = st.number_input("LOS (Length of Stay / Hari Rawat)", min_value=1, max_value=30)
+        total_tarif = st.number_input("Total Tarif (Rp)", min_value=0,  step=50000)
+        tarif_rs = st.number_input("Tarif RS (Rp)", min_value=0, step=50000)
         
     with col2:
         laba = st.number_input("Laba (Rp)", value=total_tarif - tarif_rs, step=50000)
-        diaglist = st.text_input("Kode Diagnosis (DIAGLIST)", value="E11.9")
-        proclist = st.text_input("Kode Prosedur (PROCLIST)", value="87.44;89.52;90.59")
-        inacbg = st.text_input("Kode INACBG", value="E-4-10-I")
+        diaglist = st.text_input("Kode Diagnosis (DIAGLIST)")
+        proclist = st.text_input("Kode Prosedur (PROCLIST)")
+        inacbg = st.text_input("Kode INACBG")
 
     if st.button("🔍 Cek Status Klaim", type="primary"):
         # Format input menjadi DataFrame
