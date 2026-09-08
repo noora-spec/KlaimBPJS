@@ -62,7 +62,8 @@ with tab1:
             'TARIF_RS': tarif_rs,
             'LABA': laba
         }])[feature_names]
-        
+        # Gunakan reindex agar aman dari KeyError dan menyelaraskan urutan fitur
+        df_aligned = pd.get_dummies(df_input).reindex(columns=feature_names, fill_value=0)
         # Prediksi Model
         pred_val = model.predict(df_input)[0]
         pred_label = le.inverse_transform([pred_val])[0]
